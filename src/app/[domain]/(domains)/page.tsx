@@ -1,3 +1,4 @@
+import { GitHubButton } from "@/app/GitHubButton";
 import Link from "next/link";
 
 interface DomainPageProps {
@@ -35,6 +36,18 @@ export default function DomainPage({ params: { domain } }: DomainPageProps) {
 						className="text-blue-500">
 						multidomain2.valtteri.dev
 					</Link>
+				</div>
+				<div className="my-4 flex items-center justify-center">
+					<GitHubButton
+						text="Source code"
+						href="https://github.com/valdemartti/nextjs-multi-domain"
+						ariaLabel="View the source code on GitHub"
+					/>
+					<GitHubButton
+						text="Follow @valdemartti"
+						href="https://github.com/valdemartti"
+						ariaLabel="Follow @valdemartti on GitHub"
+					/>
 				</div>
 			</div>
 		</main>
