@@ -7,22 +7,11 @@ export function middleware(req: NextRequest) {
 	// Skipping public files
 	if (/\.(.*)$/.test(url.pathname) || url.pathname.includes("_next")) return;
 
-	const host = req.headers.get("host");
-	const domain = getDomain(host);
+	console.log(url.host, process.env.APP_HOSTNAME);
 
-	console.log(domain, url, process.env.APP_HOSTNAME);
+	if (url.host === process.env.APP_HOSTNAME) return;
 
-	if (!domain) return;
-
-	url.pathname = `/${domain}${url.pathname}`;
+	url.pathname = `/${url.host}${url.pathname}`;
 
 	return NextResponse.rewrite(url);
 }
-
-const getDomain = (host?: string | null) => {
-	if (!host || typeof window === "undefined") return null;
-	if (!window.location.host) return null;
-	if (window.location.host === process.env.APP_HOSTNAME) return null;
-
-	return window.location.host;
-};
