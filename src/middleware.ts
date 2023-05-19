@@ -10,7 +10,7 @@ export function middleware(req: NextRequest) {
 	const host = req.headers.get("host");
 	const domain = getDomain(host);
 
-	console.log(domain, process.env.APP_HOSTNAME);
+	console.log(domain, url, process.env.APP_HOSTNAME);
 
 	if (!domain) return;
 
