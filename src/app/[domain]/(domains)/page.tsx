@@ -5,5 +5,9 @@ interface DomainPageProps {
 }
 
 export default function DomainPage({ params: { domain } }: DomainPageProps) {
-	return <div>Welcome to page.tsx in the {domain} domain!</div>;
+	return (
+		<div className="bg-theme text-theme">
+			Welcome to page.tsx in the {domain} domain!
+		</div>
+	);
 }
