@@ -18,7 +18,6 @@ export default function DomainsLayout({
 		domain: string;
 	};
 }) {
-	console.log("params", params);
 	const { domain } = params;
 
 	const domainData = domains.find((d) => d.name === domain);
